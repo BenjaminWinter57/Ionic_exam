@@ -1,0 +1,26 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>Liste de meme</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>Rajoute un nouveau meme</h2>
+  <button ion-button (click)="onGoToCreate()">Ajouter</button>
+  <h2>Liste de mes memes</h2>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4 *ngFor="let meme of memes">
+        <ion-list (click)="onGoToMeme(meme.data.name,meme.id)">
+          <ion-item>
+            <ion-img width="80" height="80" [src]="meme.data.image" [alt]="meme.data.alt"></ion-img>
+          </ion-item>
+          <ion-item>
+            {{meme.data.name}}
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

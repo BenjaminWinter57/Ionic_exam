@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>photos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <img *ngIf="imgUrl" [src]="imgUrl">
+  <div text-center>
+    <button ion-button round icon-only (click)="onPicture()">
+      <ion-icon name="camera"></ion-icon>
+    </button>
+  </div>
+  <p>Vous savez prendre des photos de vous tous les jours, vous permets de vous sentir bien dans votre peau <br> D'avoir une évolution constante.</p>
+</ion-content>

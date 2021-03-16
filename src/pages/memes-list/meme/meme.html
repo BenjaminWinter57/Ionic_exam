@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <button ion-button (click)="onGoAccessModif()">Rendre Modifiable</button>
+
+  <div *ngIf="modif; then content else otherContent"></div>
+  <ng-template #content>
+    <ion-item>
+      <ion-label>Memes</ion-label>
+      <ion-input type="text" [(ngModel)]="meme.data.image"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Nom</ion-label>
+      <ion-input type="text" [(ngModel)]="meme.data.name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Date</ion-label>
+      <ion-input type="text" [(ngModel)]="meme.data.date"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Alt</ion-label>
+      <ion-input type="text" [(ngModel)]="meme.data.alt"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Description</ion-label>
+      <ion-textarea rows="20" [(ngModel)]="meme.data.description"></ion-textarea>
+    </ion-item>
+    <br>
+    <div class="text-center">
+      <button ion-button (click)="onModif()">Modifier</button>
+    </div>
+  </ng-template>
+  <ng-template #otherContent>
+    <ion-grid *ngIf="meme">
+      <ion-row>
+        <ion-col col-6>
+          <button ion-button (click)="onDelete()">
+            <ion-icon name="md-flame">&nbsp; Bruler ce meme</ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6>
+          <ion-img width="150" height="150" [src]="meme.data.image" [alt]="meme.data.alt"></ion-img>
+        </ion-col>
+        <ion-col col-6>
+          <strong>Title :</strong> <br>
+          {{meme.data.name}} <br>
+          <strong>Date :</strong> <br>
+          {{meme.data.date}} <br>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <strong>Résumé :</strong>
+          <p class="text-justify">
+            {{meme.data.description}}
+          </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ng-template>
+</ion-content>

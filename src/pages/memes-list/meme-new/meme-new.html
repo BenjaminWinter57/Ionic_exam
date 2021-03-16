@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Ajout d'un meme</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>Affiche</ion-label>
+    <ion-input type="text" [(ngModel)]="meme.image"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Name</ion-label>
+    <ion-input type="text" [(ngModel)]="meme.name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Date</ion-label>
+    <ion-input type="text" [(ngModel)]="meme.date"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>alt</ion-label>
+    <ion-input type="text" [(ngModel)]="meme.alt"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Description</ion-label>
+    <ion-textarea rows="20" [(ngModel)]="meme.description"></ion-textarea>
+  </ion-item>
+  <br>
+  <div class="text-center">
+    <button ion-button (click)="onAdd()">Enregistrer</button>
+  </div>
+</ion-content>
